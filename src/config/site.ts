@@ -1,17 +1,9 @@
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ||
-  (process.env.VERCEL_PROJECT_PRODUCTION_URL
-    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-    : process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : "https://pdfpro.vn");
-
 export const siteConfig = {
   name: "PDF Pro",
   shortName: "PDF Pro",
   description: "Bộ công cụ xử lý PDF trực tuyến miễn phí, tiếng Việt, nhanh chóng và bảo mật 100%. File không bao giờ tải lên máy chủ, xử lý an toàn ngay trên trình duyệt của bạn.",
-  url: siteUrl,
-  ogImage: `${siteUrl}/og.jpg`,
+  url: "https://pdf-pro-omega.vercel.app",
+  ogImage: "https://pdf-pro-omega.vercel.app/og.jpg",
   contactEmail: "hotro@pdfpro.vn",
   creator: "PDF Pro Team",
   keywords: [
