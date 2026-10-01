@@ -13,7 +13,6 @@ import { toolsRegistry, toolCategories, ToolCategory } from "@/lib/tools";
 import { ToolCard } from "@/components/common/ToolCard";
 import { PrivacyBadge } from "@/components/common/PrivacyBadge";
 import { AdSlot } from "@/components/common/AdSlot";
-import { AffiliateBox } from "@/components/common/AffiliateBox";
 
 export default function HomePage() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -83,6 +82,7 @@ export default function HomePage() {
           <div className="flex flex-wrap items-center justify-center gap-2 text-xs">
             <span className="text-slate-400 font-medium">Gợi ý nhanh:</span>
             {[
+              { label: "Ký tên PDF", slug: "ky-ten-pdf" },
               { label: "Ghép PDF", slug: "ghep-file-pdf" },
               { label: "Tách PDF", slug: "tach-file-pdf" },
               { label: "Nén PDF", slug: "nen-file-pdf" },
@@ -214,9 +214,6 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-
-        {/* Affiliate Product Recommendations */}
-        <AffiliateBox limit={4} />
       </section>
     </div>
   );

@@ -12,6 +12,7 @@ import {
   ListOrdered,
   Stamp,
   FileText,
+  PenTool,
   LucideIcon,
   ArrowRight,
 } from "lucide-react";
@@ -30,6 +31,7 @@ const iconMap: Record<string, LucideIcon> = {
   ListOrdered,
   Stamp,
   FileText,
+  PenTool,
 };
 
 export function ToolCard({ tool }: { tool: ToolRegistryItem }) {

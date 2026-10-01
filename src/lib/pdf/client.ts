@@ -84,3 +84,33 @@ export async function renderPageThumbnail(
   canvas.height = 0;
   return dataUrl;
 }
+
+/**
+ * Render a single page directly into an existing HTMLCanvasElement
+ */
+export async function renderPdfPageToCanvas(
+  source: File | ArrayBuffer | Uint8Array,
+  pageNumber: number,
+  targetCanvas: HTMLCanvasElement,
+  scale = 1.0
+): Promise<PDFDocumentProxy> {
+  const doc = await loadPdfDocument(source);
+  const page = await doc.getPage(pageNumber);
+  const viewport = page.getViewport({ scale });
+  const context = targetCanvas.getContext("2d");
+
+  if (!context) {
+    throw new Error("Không thể khởi tạo Canvas 2D context.");
+  }
+
+  targetCanvas.width = viewport.width;
+  targetCanvas.height = viewport.height;
+
+  await page.render({
+    canvasContext: context,
+    viewport,
+  }).promise;
+
+  return doc;
+}
+

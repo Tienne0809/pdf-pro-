@@ -14,6 +14,7 @@ import { CompressTool } from "./CompressTool";
 import { NumberPagesTool } from "./NumberPagesTool";
 import { WatermarkTool } from "./WatermarkTool";
 import { PdfToTextTool } from "./PdfToTextTool";
+import { SignTool } from "./SignTool";
 import { Clock } from "lucide-react";
 
 export function ToolDispatcher({ slug }: { slug: string }) {
@@ -63,6 +64,8 @@ export function ToolDispatcher({ slug }: { slug: string }) {
       return <WatermarkTool initialFile={chainedFile} />;
     case "pdf-sang-van-ban":
       return <PdfToTextTool initialFile={chainedFile} />;
+    case "ky-ten-pdf":
+      return <SignTool initialFile={chainedFile} />;
     default:
       return (
         <div className="rounded-3xl border border-slate-200 bg-white p-12 text-center space-y-4 shadow-sm">

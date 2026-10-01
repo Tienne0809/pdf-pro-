@@ -95,7 +95,7 @@ export function Footer() {
               Chuyển đổi & Chỉnh sửa
             </h3>
             <ul className="space-y-2.5 text-sm">
-              {toolsRegistry.slice(6, 12).map((tool) => (
+              {toolsRegistry.slice(6).map((tool) => (
                 <li key={tool.slug}>
                   <Link
                     href={`/${tool.slug}`}

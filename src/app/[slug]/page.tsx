@@ -13,7 +13,6 @@ import { siteConfig } from "@/config/site";
 import { ToolDispatcher } from "@/components/tools/ToolDispatcher";
 import { PrivacyBadge } from "@/components/common/PrivacyBadge";
 import { AdSlot } from "@/components/common/AdSlot";
-import { AffiliateBox } from "@/components/common/AffiliateBox";
 import { ToolCard } from "@/components/common/ToolCard";
 
 export async function generateStaticParams() {
@@ -176,9 +175,6 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
             </ul>
           </div>
         </div>
-
-        {/* Affiliate Recommendations */}
-        <AffiliateBox limit={2} />
 
         {/* FAQ Section */}
         {tool.faqs.length > 0 && (

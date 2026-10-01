@@ -406,6 +406,41 @@ export const toolsRegistry: ToolRegistryItem[] = [
     relatedSlugs: ["pdf-sang-anh", "trich-xuat-trang-pdf"],
     keywords: ["pdf sang text", "chuyển pdf sang txt", "trích xuất chữ pdf", "copy chữ từ pdf"],
   },
+  {
+    slug: "ky-ten-pdf",
+    title: "Ký tên PDF - Tạo và chèn chữ ký điện tử vào PDF online miễn phí",
+    shortTitle: "Ký tên PDF",
+    description: "Ký tài liệu PDF trực tuyến siêu nhanh và an toàn. Hỗ trợ vẽ tay chữ ký, gõ tên tự động tạo chữ ký nghệ thuật hoặc tải ảnh con dấu PNG trong suốt.",
+    category: "chinh-sua",
+    iconName: "PenTool",
+    badge: "Mới & Cần thiết",
+    color: "from-rose-500 to-indigo-600",
+    accept: ".pdf",
+    multiple: false,
+    steps: [
+      { title: "Bước 1: Chọn tài liệu PDF cần ký", desc: "Tải hợp đồng, đơn từ hoặc hồ sơ PDF từ máy tính/điện thoại." },
+      { title: "Bước 2: Tạo chữ ký và chọn vị trí", desc: "Vẽ tay bằng chuột/cảm ứng, gõ tên tạo chữ ký đẹp hoặc tải ảnh dấu. Kéo thả chữ ký đến đúng vị trí trên trang." },
+      { title: "Bước 3: Xuất và tải PDF đã ký", desc: "Bấm 'Ký tên & Xuất file', trình duyệt sẽ nhúng chữ ký sắc nét vào tài liệu để bạn tải về ngay." },
+    ],
+    features: [
+      "Hỗ trợ 3 cách tạo chữ ký: Vẽ tay cảm ứng, Gõ tên font thư pháp, Tải ảnh con dấu",
+      "Kéo thả điều chỉnh vị trí và kích thước chữ ký trực quan trên từng trang",
+      "Tùy chọn màu mực: Mực xanh truyền thống, Mực đen doanh nghiệp, Mực đỏ phê duyệt",
+      "Bảo mật 100% Client-side: Hợp đồng và chữ ký không bao giờ bị lưu trên server",
+    ],
+    faqs: [
+      {
+        q: "Chữ ký điện tử tạo trên PDF Pro có an toàn và bảo mật không?",
+        a: "Tuyệt đối an toàn! Chữ ký và tài liệu hợp đồng của bạn được nhúng trực tiếp ngay trong trình duyệt máy tính/điện thoại, không bao giờ gửi qua internet hay lưu trên máy chủ nào.",
+      },
+      {
+        q: "Tôi có thể ký trên điện thoại cảm ứng bằng ngón tay không?",
+        a: "Có! Giao diện bảng vẽ hỗ trợ cảm ứng mượt mà trên iPhone, iPad và điện thoại Android.",
+      },
+    ],
+    relatedSlugs: ["ghep-file-pdf", "them-watermark", "chen-so-trang", "nen-file-pdf"],
+    keywords: ["ký tên pdf", "ky ten pdf", "chèn chữ ký vào pdf", "chữ ký điện tử pdf", "sign pdf online", "ký hợp đồng pdf"],
+  },
 ];
 
 export function getToolBySlug(slug: string): ToolRegistryItem | undefined {
