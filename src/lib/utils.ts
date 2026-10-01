@@ -112,19 +112,36 @@ export function generateResultFileName(
 }
 
 /**
- * Trigger download of a Blob in the browser
+ * Detect if current browser is an in-app webview (e.g. Zalo, Facebook, TikTok)
+ */
+export function isInAppBrowser(): boolean {
+  if (typeof window === "undefined") return false;
+  const ua = navigator.userAgent || navigator.vendor || (window as any).opera || "";
+  return /FBAN|FBAV|Instagram|Zalo|Line|TikTok|Snapchat|MicroMessenger|Viber/i.test(ua);
+}
+
+/**
+ * Trigger download of a Blob in the browser with mobile & webview fallbacks
  */
 export function downloadBlob(blob: Blob, filename: string): void {
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = filename;
-  document.body.appendChild(a);
-  a.click();
-  setTimeout(() => {
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-  }, 1000);
+  try {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    a.rel = "noopener noreferrer";
+    a.style.display = "none";
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(() => {
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }, 3000);
+  } catch (err) {
+    console.error("Standard download error, opening URL directly:", err);
+    const url = URL.createObjectURL(blob);
+    window.open(url, "_blank");
+  }
 }
 
 /**
@@ -134,3 +151,4 @@ export async function fileToUint8Array(file: File | Blob): Promise<Uint8Array> {
   const arrayBuffer = await file.arrayBuffer();
   return new Uint8Array(arrayBuffer);
 }
+
