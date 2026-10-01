@@ -22,13 +22,35 @@ export const metadata: Metadata = {
   alternates: {
     canonical: siteConfig.url,
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
+      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+      { url: "/favicon-192x192.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+  },
+  manifest: "/manifest.webmanifest",
   openGraph: {
     title: `${siteConfig.name} - Bộ công cụ PDF Miễn Phí & Bảo Mật`,
     description: siteConfig.description,
     url: siteConfig.url,
-    siteName: siteConfig.name,
+    siteName: "PDF Pro",
     locale: "vi_VN",
     type: "website",
+    images: [
+      {
+        url: "/favicon-512x512.png",
+        width: 512,
+        height: 512,
+        alt: "PDF Pro Logo",
+      },
+    ],
   },
   robots: {
     index: true,
@@ -51,8 +73,23 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Google WebSite Schema for Site Name & Logo in Google Search results
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "PDF Pro",
+    alternateName: ["PDFPro", "PDF Pro Việt Nam", "Bộ công cụ PDF Pro"],
+    url: siteConfig.url,
+  };
+
   return (
     <html lang="vi" className="scroll-smooth">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+      </head>
       <body className={`${beVietnamPro.className} flex min-h-screen flex-col bg-white text-slate-900 antialiased selection:bg-rose-500 selection:text-white`}>
         <Header />
         <main className="flex-1">{children}</main>
